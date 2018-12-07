@@ -29,15 +29,15 @@ class Volunteer
     volunteers
   end
   #
-  # def self.find(id)
-  #   returned_projects_by_id = DB.exec("SELECT * FROM projects WHERE id = #{id};")
-  #   projects = []
-  #   returned_projects_by_id.each do |project|
-  #     name = project.fetch("name")
-  #     id = project.fetch("id").to_i
-  #     project_id = project.fetch("project_id").to_i
-  #     projects.push(Project.new({:name => name, :id => id, :project_id => project_id}))
-  #   end
-  #   projects[0]
-  # end
+  def self.find(id)
+    returned_volunteers_by_id = DB.exec("SELECT * FROM volunteers WHERE id = #{id};")
+    volunteers = []
+    returned_volunteers_by_id.each do |volunteer|
+      name = volunteer.fetch("name")
+      id = volunteer.fetch("id").to_i
+      project_id = volunteer.fetch("project_id").to_i
+      volunteers.push(Volunteer.new({:name => name, :id => id, :project_id => project_id}))
+    end
+    volunteers[0]
+  end
 end
