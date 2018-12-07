@@ -50,5 +50,9 @@ class Project
     volunteers
   end
 
+  def update(params)
+    @title = params[:title]
+    DB.exec("UPDATE projects SET title = '#{@title}' WHERE id = #{@id}")
+  end
 
 end
