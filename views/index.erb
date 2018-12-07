@@ -1,6 +1,16 @@
 <h1>Volunteer Tracker</h1>
 
-<form class="" action="index.html" method="post">
+<form class="" action="/add_project" method="post">
   <label for="title">Title of the project:</label>
-  <input type="text" name="title" value="title">
+  <input type="text" name="title">
+  <button type="submit" name="button">Create Project</button>
 </form>
+
+<% if @projects.any? %>
+<ul>
+  <% @projects.each do |project| %>
+  <li><a href="/<%= project.id %>"><%=project.title %></a></li>
+  <% end %>
+
+</ul>
+<% end %>
