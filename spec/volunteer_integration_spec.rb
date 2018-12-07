@@ -74,3 +74,26 @@ describe 'the volunteer detail page path', {:type => :feature} do
     expect(page).to have_content('Teaching Kids to Code')
   end
 end
+
+#the user can update the name and project a volunteer is assigned to from the volunteer details page. This will update on both the volunteer and project details page.
+
+describe 'the volunteer update path', {:type => :feature} do
+  it 'allows a user to change the name of the project' do
+    test_project1 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+    test_project1.save
+    project1_id = test_project1.id.to_i
+    test_project2 = Project.new({:title => 'Teaching Ruby to Kids', :id => nil})
+    test_project2.save
+    project2_id = test_project2.id.to_i
+    test_volunteer1 = Volunteer.new({:name => 'Paige', :project_id => project1_id, :id => nil})
+    test_volunteer1.save
+    visit '/'
+    click_link('Paige')
+    fill_in('name', :with => 'Anna')
+    save_and_open_page
+    select('Teaching Ruby to Kids', :from => 'project')
+    click_button('Update Volunteer')
+    expect(page).to have_content('Teaching Ruby to Kids')
+    expect(page).to have_content('Anna')
+  end
+end

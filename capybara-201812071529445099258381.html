@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Volunteer Tracker</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Paige's Page</h1>
+
+
+<h3>Assigned Project:</h3>
+
+<p>Teaching Kids to Code</p>
+
+<h3>Update a Volunteer</h3>
+<form action="/update_volunteer/312" method="post">
+  <label for="title">Name:</label>
+  <input type="text" name="name" value="Paige"><br>
+  <label for="title">Update the project:</label>
+  <select required="true" class="project" name="project">
+    
+      <option value="471">Teaching Kids to Code</option>
+    
+      <option value="472">Teaching Ruby to Kids</option>
+    
+  </select>
+  <input type="hidden" name="_method" value="patch"><br>
+  <button type="submit" name="button">Update Volunteer</button>
+</form>
+
+<a href="/">Back</a>
+
+    </div>
+  </body>
+</html>

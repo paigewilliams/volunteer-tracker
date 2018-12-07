@@ -62,7 +62,6 @@ patch("/update_volunteer/:id")do
   name = params.fetch("name")
   project_id = params[:project].to_i
   id = params[:id].to_i
-  binding.pry
   @volunteer = Volunteer.find(id)
   @volunteer.update({:name => name, :project_id => project_id, :id => nil})
   redirect("/volunteer/#{id}")
