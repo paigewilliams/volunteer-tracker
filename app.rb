@@ -23,14 +23,6 @@ post("/add_project") do
   erb(:index)
 end
 
-get("/project/:id") do
-  id = params[:id].to_i
-  @project = Project.find(id)
-  @volunteers = Volunteer.all
-  @assigned_volunteers = @project.volunteers
-  erb(:project)
-end
-
 post("/add_volunteer") do
   project_id = params[:project].to_i
   name = params.fetch("name")
@@ -40,6 +32,22 @@ post("/add_volunteer") do
   @projects = Project.all
   erb(:index)
 end
+
+get("/project/:id") do
+  id = params[:id].to_i
+  @project = Project.find(id)
+  @assigned_volunteers = @project.volunteers
+  erb(:project)
+end
+
+get("/volunteer/:id") do
+  id = params[:id].to_i
+  @volunteer = Volunteer.find(id)
+  project_id = @volunteer.project_id
+  @assigned_project = Project.find(project_id)
+  erb(:volunteer)
+end
+
 
 patch("/update/:id") do
   title = params.fetch("title")

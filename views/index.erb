@@ -31,7 +31,7 @@
 <h3>Volunteers</h3>
 <ul>
   <% @volunteers.each do |volunteer| %>
-  <li><%=volunteer.name %></li>
+  <li><a href="/volunteer/<%= volunteer.id %>"><%=volunteer.name %></a></li>
   <% end %>
 </ul>
 <% end %>
