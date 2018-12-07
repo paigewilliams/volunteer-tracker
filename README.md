@@ -18,14 +18,14 @@ View specs [here](https://github.com/paigewilliams/volunteer-tracker/tree/master
 
 ## Objectives
 
-- [] Tests are 100% passing. You may not significantly alter the included tests but you may add additional tests as necessary.
-- [] Database is set up correctly.
-- [] Correct set up of a one-to-many relationship
+- [x] Tests are 100% passing. You may not significantly alter the included tests but you may add additional tests as necessary.
+- [x] Database is set up correctly.
+- [x] Correct set up of a one-to-many relationship
 - [] Sinatra has required CRUD functionality.
-- [] Project has strong commit history history.
+- [x] Project has strong commit history history.
 - [] Project has detailed README with all necessary setup instructions and a description of the project.
-- [] Required functionality was in place by the Friday deadline.
-- [] Student can demonstrate understanding of Ruby concepts if asked.
+- [x] Required functionality was in place by the Friday deadline.
+- [x] Student can demonstrate understanding of Ruby concepts if asked.
 
 ## Setup and Installation
 

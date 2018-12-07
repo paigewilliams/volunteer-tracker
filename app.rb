@@ -60,12 +60,15 @@ end
 get("/projects/:id/edit")do
   id = params[:id].to_i
   @project = Project.find(id)
-  erb(:delete)
+  erb(:delete_project)
 end
 
 delete("/delete/:id") do
   id = params[:id].to_i
   @project = Project.find(id)
-  @project.delete
+  volunteers = @project.volunteers
+  volunteers.each do |volunteer|
+    volunteer.delete
+  end  
   redirect ("/")
 end

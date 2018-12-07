@@ -17,9 +17,9 @@
 
 <form action="/add_volunteer" method="post">
   <label for="name">Volunteer Name:</label>
-  <input type="text" name="name"><br>
+  <input required="true" type="text" name="name"><br>
   <label for="project">Project:</label>
-  <select class="project" name="project">
+  <select required="true" class="project" name="project">
     <% @projects.each do |project| %>
       <option value="<%= project.id %>"><%= project.title %></option>
     <% end %>
