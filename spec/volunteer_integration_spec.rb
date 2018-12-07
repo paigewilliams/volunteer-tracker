@@ -46,18 +46,31 @@ describe 'the project delete path', {:type => :feature} do
     expect(page).not_to have_content("Teaching Kids to Code")
   end
 end
-#
-# The user should be able to click on a project detail page and see a list of all volunteers working on that project. The user should be able to click on a volunteer to see the volunteer's detail page.
-#
-describe 'the volunteer detail page path', {:type => :feature} do
-  it 'shows a volunteer detail page' do
+
+# The user should be able to click on a project detail page and see a list of all volunteers working on that project.
+
+describe 'the project detail page path', {:type => :feature} do
+  it 'shows a project detail page' do
     test_project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
     test_project.save
     project_id = test_project.id.to_i
     test_volunteer = Volunteer.new({:name => 'Jasmine', :project_id => project_id, :id => nil})
     test_volunteer.save
-    binding.pry
     visit "/project/#{project_id}"
     expect(page).to have_content('Jasmine')
+  end
+end
+
+#The user should be able to click on a volunteer to see the volunteer's detail page. On that page should be the project that volunteer is assigned to.
+
+describe 'the volunteer detail page path', {:type => :feature} do
+  it 'shows a volunteers detail page' do
+    test_project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+    test_project.save
+    project_id = test_project.id.to_i
+    test_volunteer = Volunteer.new({:name => 'Jasmine', :project_id => project_id, :id => nil})
+    test_volunteer.save
+    visit "/volunteer/#{test_volunteer.id}"
+    expect(page).to have_content('Teaching Kids to Code')
   end
 end
