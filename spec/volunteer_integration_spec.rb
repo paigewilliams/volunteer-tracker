@@ -47,7 +47,7 @@ describe 'the project delete path', {:type => :feature} do
   end
 end
 #
-# # The user should be able to click on a project detail page and see a list of all volunteers working on that project. The user should be able to click on a volunteer to see the volunteer's detail page.
+# The user should be able to click on a project detail page and see a list of all volunteers working on that project. The user should be able to click on a volunteer to see the volunteer's detail page.
 #
 # describe 'the volunteer detail page path', {:type => :feature} do
 #   it 'shows a volunteer detail page' do

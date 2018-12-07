@@ -40,4 +40,13 @@ class Volunteer
     end
     volunteers[0]
   end
+
+  def update(params)
+    @name = params[:name]
+    DB.exec("UPDATE volunteers SET name = '#{@name}' WHERE id = #{@id};")
+  end
+
+  def delete
+    DB.exec("DELETE FROM volunteers WHERE id = #{@id};")
+  end
 end
