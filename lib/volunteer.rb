@@ -43,7 +43,8 @@ class Volunteer
 
   def update(params)
     @name = params[:name]
-    DB.exec("UPDATE volunteers SET name = '#{@name}' WHERE id = #{@id};")
+    @project_id = params[:project_id]
+    DB.exec("UPDATE volunteers SET name = '#{@name}', project_id = #{@project_id} WHERE id = #{@id};")
   end
 
   def delete

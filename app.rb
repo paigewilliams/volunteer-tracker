@@ -41,6 +41,7 @@ get("/project/:id") do
 end
 
 get("/volunteer/:id") do
+  @projects = Project.all
   id = params[:id].to_i
   @volunteer = Volunteer.find(id)
   project_id = @volunteer.project_id
@@ -49,12 +50,22 @@ get("/volunteer/:id") do
 end
 
 
-patch("/update/:id") do
+patch("/update_project/:id") do
   title = params.fetch("title")
   id = params[:id].to_i
   @project = Project.find(id)
   @project.update({:title => title, :id => nil})
   redirect ("/project/#{id}")
+end
+
+patch("/update_volunteer/:id")do
+  name = params.fetch("name")
+  project_id = params[:project].to_i
+  id = params[:id].to_i
+  binding.pry
+  @volunteer = Volunteer.find(id)
+  @volunteer.update({:name => name, :project_id => project_id, :id => nil})
+  redirect("/volunteer/#{id}")
 end
 
 get("/projects/:id/edit")do
@@ -66,9 +77,11 @@ end
 delete("/delete/:id") do
   id = params[:id].to_i
   @project = Project.find(id)
+  @project.delete
   volunteers = @project.volunteers
+  project_id = nil
   volunteers.each do |volunteer|
     volunteer.delete
-  end  
+  end
   redirect ("/")
 end

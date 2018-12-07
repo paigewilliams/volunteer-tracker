@@ -5,4 +5,18 @@
 
 <p><%= @assigned_project.title %></p>
 
+<h3>Update a Volunteer</h3>
+<form action="/update_volunteer/<%= @volunteer.id %>" method="post">
+  <label for="title">Name:</label>
+  <input type="text" name="name" value="<%=@volunteer.name %>"><br>
+  <label for="title">Update the project:</label>
+  <select required="true" class="project" name="project">
+    <% @projects.each do |project| %>
+      <option value="<%= project.id %>"><%= project.title %></option>
+    <% end %>
+  </select>
+  <input type="hidden" name="_method" value="patch"><br>
+  <button type="submit" name="button">Update Volunteer</button>
+</form>
+
 <a href="/">Back</a>
