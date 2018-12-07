@@ -27,4 +27,14 @@ class Project
     projects
   end
 
+  def self.find(id)
+    returned_projects_by_id = DB.exec("SELECT * FROM projects WHERE id = #{id};")
+    projects = []
+    returned_projects_by_id.each do |project|
+      title = project.fetch("title")
+      id = project.fetch("id").to_i
+      projects.push(Project.new({:title => title, :id => id}))
+    end
+    projects[0]
+  end    
 end
