@@ -36,7 +36,7 @@ describe Volunteer do
       expect(Volunteer.all).to eq [volunteer1, volunteer2]
     end
   end
-#
+
   describe '#save' do
     it 'adds a volunteer to the database' do
       volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
@@ -44,7 +44,7 @@ describe Volunteer do
       expect(Volunteer.all).to eq [volunteer1]
     end
   end
-#
+
   describe '.find' do
     it 'returns a volunteer by id' do
       volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
