@@ -19,6 +19,7 @@ post("/add_project") do
   project = Project.new({:title => title, :id => nil})
   project.save
   @projects = Project.all
+  @volunteers = Volunteer.all
   erb(:index)
 end
 
@@ -26,20 +27,19 @@ get("/project/:id") do
   id = params[:id].to_i
   @project = Project.find(id)
   @volunteers = Volunteer.all
+  @assigned_volunteers = @project.volunteers
   erb(:project)
 end
 
-# get("/add_volunteer") do
-#   project_id = params[:id].to_i
-#   name = params.fetch("name")
-#   volunteer = Project.new({:name => name, :project_id => project_id, :id => nil})
-#   volunteer.save
-#   @volunteers = Volunteer.all
-#   @projects = Project.all
-#   @project = Project.find(id)
-#   binding.pry
-#   redirect("/project/:id")
-# end
+post("/add_volunteer") do
+  project_id = params[:project].to_i
+  name = params.fetch("name")
+  volunteer = Volunteer.new({:name => name, :project_id => project_id, :id => nil})
+  volunteer.save
+  @volunteers = Volunteer.all
+  @projects = Project.all
+  erb(:index)
+end
 
 patch("/update/:id") do
   title = params.fetch("title")

@@ -21,10 +21,18 @@
   <label for="project">Project:</label>
   <select class="project" name="project">
     <% @projects.each do |project| %>
-      <option value="project.id %>"><%= project.title %></option>
+      <option value="<%= project.id %>"><%= project.title %></option>
     <% end %>
   </select>
   <button type="submit" name="button">Assign Volunteer</button>
 </form>
 
+<% if @volunteers.any? %>
+<h3>Volunteers</h3>
+<ul>
+  <% @volunteers.each do |volunteer| %>
+  <li><%=volunteer.name %></li>
+  <% end %>
+</ul>
+<% end %>
 <% end %>

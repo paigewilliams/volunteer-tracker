@@ -56,10 +56,8 @@ describe 'the volunteer detail page path', {:type => :feature} do
     project_id = test_project.id.to_i
     test_volunteer = Volunteer.new({:name => 'Jasmine', :project_id => project_id, :id => nil})
     test_volunteer.save
-    visit "/projects/#{project_id}"
-    click_link('Jasmine')
-    fill_in('name', :with => 'Jane')
-    click_button('Update Volunteer')
-    expect(page).to have_content('Jane')
+    binding.pry
+    visit "/project/#{project_id}"
+    expect(page).to have_content('Jasmine')
   end
 end

@@ -1,4 +1,15 @@
-<h1>Title: <%= @project.title %></h1>
+<h1>Project: <%= @project.title %></h1>
+
+<% if @assigned_volunteers.any? %>
+<h3>Assigned Volunteers</h3>
+<ul>
+  <% @assigned_volunteers.each do |volunteer| %>
+  <li><%=volunteer.name %></li>
+  <% end %>
+</ul>
+<% else %>
+  <p>There are no volunteers assigned to this project.</p>
+<% end %>
 
 <h3>Update a Project</h3>
 <form class="" action="/update/<%= @project.id %>" method="post">
