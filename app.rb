@@ -20,3 +20,17 @@ post("/add_project") do
   @projects = Project.all
   erb(:index)
 end
+
+get("/project/:id") do
+  id = params[:id].to_i
+  @project = Project.find(id)
+  erb(:project)
+end
+
+patch("/update/:id") do
+  title = params.fetch("title")
+  id = params[:id].to_i
+  @project = Project.find(id)
+  @project.update({:title => title, :id => nil})
+  redirect ("/project/#{id}")
+end
