@@ -34,3 +34,16 @@ patch("/update/:id") do
   @project.update({:title => title, :id => nil})
   redirect ("/project/#{id}")
 end
+
+get("/projects/:id/edit")do
+  id = params[:id].to_i
+  @project = Project.find(id)
+  erb(:delete)
+end
+
+delete("/delete/:id") do
+  id = params[:id].to_i
+  @project = Project.find(id)
+  @project.delete
+  redirect ("/")
+end
