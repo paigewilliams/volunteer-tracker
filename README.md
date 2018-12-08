@@ -6,6 +6,8 @@
 
 #### By **Paige Williams**
 
+![alt text](https://github.com/paigewilliams/volunteer-tracker/blob/master/img/Screen%20Shot%202018-12-07%20at%204.18.46%20PM.png)
+
 ## Description
 
 This is an exercise in using custom Postgres databases and implementing raw SQL into Ruby. The goal of this project is to create a website to track volunteers working on a project. Each project can have many volunteers, but each volunteer can only work on one project at a time. Volunteers and projects, can be added, updated and deleted.
@@ -30,7 +32,23 @@ View specs [here](https://github.com/paigewilliams/volunteer-tracker/tree/master
 
 1. Clone the project from https://github.com/paigewilliams/volunteer-tracker.git to a local directory.
 
-2.
+2. Go to the project directory in the terminal and create the database with:
+```console
+createdb volunteer_tracker < my_database.sql
+```
+3. Go to the project directory in the terminal and run the Sinatra server with:
+```console
+ruby app.rb
+```
+4. Create test database in the terminal with:
+```console
+createdb -T volunteer_tracker volunteer_tracker_test
+```
+5. Run the tests with:
+```console
+rspec
+```
+5. Go to the address localhost:4567 in your preferred web browser to run the app.
 
 ## Support and Contact Details
 
