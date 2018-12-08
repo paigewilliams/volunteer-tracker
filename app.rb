@@ -78,9 +78,10 @@ delete("/delete/:id") do
   @project = Project.find(id)
   @project.delete
   volunteers = @project.volunteers
-  project_id = nil
+  project_id = 0
   volunteers.each do |volunteer|
-    volunteer.delete
+    name = volunteer.name
+    volunteer.update({:name => name, :project_id => project_id, :id => nil})
   end
   redirect ("/")
 end

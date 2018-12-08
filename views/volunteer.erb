@@ -1,11 +1,12 @@
 <h1><%= @volunteer.name %>'s Page</h1>
 
-
-<h3>Assigned Project:</h3>
-
-<p><%= @assigned_project.title %></p>
-
-<h3>Update a Volunteer</h3>
+<% if @volunteer.project_id > 0 %>
+  <h5>Assigned Project:</h5>
+  <p><%= @assigned_project.title %></p>
+  <% else %>
+  <p>This volunteer is not assigned to a project. Fill out the form below to assign them to a project.</p>
+<% end %>
+<h5>Update a Volunteer</h5>
 <form action="/update_volunteer/<%= @volunteer.id %>" method="post">
   <label for="title">Name:</label>
   <input type="text" name="name" value="<%=@volunteer.name %>"><br>
@@ -16,7 +17,7 @@
     <% end %>
   </select>
   <input type="hidden" name="_method" value="patch"><br>
-  <button type="submit" name="button">Update Volunteer</button>
+  <button type="submit" class="btn btn-warning" name="button">Update Volunteer</button>
 </form>
 
 <a href="/">Back</a>

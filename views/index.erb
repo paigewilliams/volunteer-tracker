@@ -3,10 +3,11 @@
 <form class="" action="/add_project" method="post">
   <label for="title">Title of the project:</label>
   <input type="text" name="title">
-  <button type="submit" name="button">Create Project</button>
+  <button type="submit" class="btn btn-warning" name="button">Create Project</button>
 </form>
 
 <% if @projects.any? %>
+<h5>Projects:</h5>
 <ul>
   <% @projects.each do |project| %>
   <li><a href="/project/<%= project.id %>"><%=project.title %></a></li>
@@ -24,11 +25,11 @@
       <option value="<%= project.id %>"><%= project.title %></option>
     <% end %>
   </select>
-  <button type="submit" name="button">Assign Volunteer</button>
+  <button type="submit" class="btn btn-warning" name="button">Assign Volunteer</button>
 </form>
 
 <% if @volunteers.any? %>
-<h3>Volunteers</h3>
+<h5>Volunteers</h5>
 <ul>
   <% @volunteers.each do |volunteer| %>
   <li><a href="/volunteer/<%= volunteer.id %>"><%=volunteer.name %></a></li>

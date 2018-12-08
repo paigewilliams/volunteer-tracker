@@ -16,8 +16,8 @@
   <label for="title">Update the title of the project:</label>
   <input type="text" name="title">
   <input type="hidden" name="_method" value="patch">
-  <button type="submit" name="button">Update Project</button>
+  <button type="submit" class="btn btn-warning" name="button">Update Project</button>
 </form>
 
-<a href="/projects/<%= @project.id %>/edit">Delete a project</a><br>
+<a href="/projects/<%= @project.id %>/edit">Delete Project</a><br>
 <a href="/">Back</a>
