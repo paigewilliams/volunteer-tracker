@@ -6,7 +6,7 @@
 
 #### By **Paige Williams**
 
-![alt text](https://github.com/paigewilliams/volunteer-tracker/blob/master/img/Screen%20Shot%202018-12-07%20at%204.18.46%20PM.png)
+![alt text](https://github.com/paigewilliams/volunteer-tracker/blob/master/img/volunteer_tracker.png)
 
 ## Description
 
