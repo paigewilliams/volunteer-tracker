@@ -73,6 +73,12 @@ get("/projects/:id/edit")do
   erb(:delete_project)
 end
 
+get("/volunteer/:id/edit")do
+  id= params[:id].to_i
+  @volunteer = Volunteer.find(id)
+  erb(:delete_volunteer)
+end
+
 delete("/delete/:id") do
   id = params[:id].to_i
   @project = Project.find(id)
@@ -83,5 +89,12 @@ delete("/delete/:id") do
     name = volunteer.name
     volunteer.update({:name => name, :project_id => project_id, :id => nil})
   end
+  redirect ("/")
+end
+
+delete("/delete_volunteer/:id") do
+  id = params[:id].to_i
+  @volunteer = Volunteer.find(id)
+  @volunteer.delete
   redirect ("/")
 end
